@@ -1,16 +1,19 @@
 require "todo_tracker/version"
-require 'require_all'
+require "generators/todo_tracker/install_generator"
+require "todo_tracker/core/search"
+require "todo_tracker/core/report"
+require "todo_tracker/command"
 require 'fileutils'
 
 module TodoTracker
   # Your code goes here...
   #core logic
-
+  #TODO bhai abhi bohot baki h
   class << self
     attr_accessor :search_path, :output_type
   end
 
-
+  #TODO hello world
   # The git branch that is used for linking in the stack trace
   #
   # @return [String] Defaults to 'master' if not set
@@ -32,27 +35,11 @@ module TodoTracker
  #    FileUtils.cp DEFAULT_CONFIG, File.join(@path, 'config/rails_best_practices.yml')
  #  end
 
-
-
-  def self.find_all_todos directory_regex
-		directory_regex.each do |file|
-		  if file != __FILE__
-		    open(file) do |f|
-		      index = 1
-		      f.each_line do |line|
-		        puts "Filename: #{file} \n Line: #{index} \n Pending Todo: #{line[6..-1]} \n" if line.include?("#TODO")
-		        index = index + 1
-		      end
-		    end
-		  end
-		end
-	end
-
-	def generate_html_report
-		directory_regex = search_path
-		find_all_todos directory_regex
-		#display progess bar after entering command. use progrss bar gem
-	end
+	# def generate_html_report
+	# 	directory_regex = search_path
+	# 	find_all_todos directory_regex
+	# 	#display progess bar after entering command. use progrss bar gem
+	# end
 
 	# # output errors with html format.
  #    def output_html_errors
@@ -73,5 +60,6 @@ module TodoTracker
 
 	def self.configure(&block)
     yield self
+    puts "i am configure"
   end
 end

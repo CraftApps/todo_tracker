@@ -1,10 +1,18 @@
+require 'fileutils'
 module TodoTracker
 
-  class SearchBot
+  class Search
 
-  	def find_all_in_between
-  		Dir["*.rb"].each do |file|
+
+
+  	def self.find_all_todos
+  		puts "i got first"
+  		puts TodoTracker.search_path
+  		TodoTracker.search_path.each do |file|
+  			puts "fdsffsdfdsdddddd"
+  			puts file
 			  if file != __FILE__
+			  	puts "fdsffsdfdsdddddd2"
 			    open(file) do |f|
 			      index = 1
 			      f.each_line do |line|

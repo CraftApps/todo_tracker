@@ -21,8 +21,10 @@ OptionParser.new do |opts|
   opts.parse!
 end
 
-if options["generate"]
-  TodoTracker::generate_html_report
+if options["output_type"] == 'text'
+  TodoTracker::Report.generate_text_report
+elsif options["output_type"] == 'html'  
+   TodoTracker::Report.generate_html_report
 else
-  TodoTracker::generate_html_report
+    puts "Try todo_tracker --help for valid options"
 end
