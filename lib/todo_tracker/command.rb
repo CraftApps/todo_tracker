@@ -1,6 +1,5 @@
 # encoding: utf-8
 require "optparse"
-
 # Usage: todo_tracker [options]
 #        --text                      Text Output
 #        --html                      Html Output
