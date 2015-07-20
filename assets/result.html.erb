@@ -9,50 +9,61 @@
         background: #eee;
         padding: 0 20px;
       }
-      h1 {
-        color: ##4E4E4E;
+
+      #todo_tracker_report{
+        width: 1080px;
       }
-      p {
-        margin: 5px 0;
-      }
-      table {
+
+      #todo_tracker_report table {
         background: white;
         border: 1px solid #666;
-        border-collapse: collapse;
+        padding: 25px;
         margin: 10px 0;
         font-size: 14px;
+        width: 100%;
       }
-      table.result th, table.result td {
+
+      #todo_tracker_report table th, #todo_tracker_report table td {
         padding: 4px;
         border: 1px solid #D0D0D0;
       }
-      table.result th {
+
+      #todo_tracker_report table th {
         background-color: #DFC;
         color: #337022;
       }
-      table.result td.filename {
-        color: #ED1556;
-      }
-      table.result tr:hover {
+
+      #todo_tracker_report table tr:hover {
         background-color: #FFFFC0;
       }
-      ul {
-        clear: both;
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-      }
-      ul li {
-       list-style: none;
-       display: none;
-       float: left;
-      }
-      .result tbody tr{
-        display: none;
+
+      #todo_tracker_report thead {
+        text-align: left;
       }
     </style>
   </head>
   <body>
-    <h1>Pending ToDo's:</h1>
+  <div id="todo_tracker_report">
+    <h1>Pending Todo's:</h1>
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Todo</th>
+        <th>Location</th>
+      </thead>
+      <tbody>
+        <% i = 1 %>
+        <% @todos.each do |todo| %>
+          <tr>
+            <td><%= i %></td>
+            <td><%= todo.content %></td>
+            <td><%= "#{todo.file_name}:#{todo.line_no}" %></td>
+          </tr>
+          <% i += 1 %>
+        <% end %>
+      </tbody>
+    </table>
+    <div>Generated on: <%= "#{Time.now.utc.strftime("%d-%b-%Y-%I:%M %p")} UTC" %></div>
+  </div>
   </body>
 </html>
