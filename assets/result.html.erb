@@ -48,16 +48,16 @@
     <table>
       <thead>
         <th>#</th>
-        <th>Todo</th>
         <th>Location</th>
+        <th>Todo</th>
       </thead>
       <tbody>
         <% i = 1 %>
         <% @todos.each do |todo| %>
           <tr>
             <td><%= i %></td>
-            <td><%= todo.content %></td>
             <td><%= "#{todo.file_name}:#{todo.line_no}" %></td>
+            <td><%= todo.content %></td>
           </tr>
           <% i += 1 %>
         <% end %>
