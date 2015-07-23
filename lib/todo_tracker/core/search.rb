@@ -8,13 +8,15 @@ module TodoTracker
       todo_list = []
 
       #Iterate through all the folders
-      Dir["*/**/*.rb"].each do |file|
-        if file != __FILE__
+      TodoTracker.search_path.each do |file|
+
+        if File.file?(file) && file != __FILE__
           open(file) do |f|
             index = 1
             f.each_line do |line|
               if line.include?("#TODO")
-                t = TodoTracker::Todo.new(index, file, ((line.strip)[6..-1]))
+                line = line.strip!
+                t = TodoTracker::Todo.new(index, file, (line[(line.index('#TODO')+6)..-1]))
                 todo_list << t
               end
               index = index + 1
