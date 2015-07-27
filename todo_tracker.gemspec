@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.authors       = ["Tushar Maroo"]
   s.email         = ["tusharmaroo@gmail.com"]
 
-  s.summary       = %q{Write a short summary, because Rubygems requires one.}
-  s.description   = %q{Write a longer description or delete this line.}
-  s.homepage      = "http://www.tusharmaroo.com"
+  s.summary       = %q{Elegantly keeps tracks of TODO's in your code.}
+  s.description   = %q{TodoTracker is a gem is written to help developers. It keeps track of their todos.}
+  s.homepage      = "https://github.com/CraftApps/todo_tracker"
   s.license       = "MIT"
 
   s.files         = Dir['{app,config,db,lib,assets}/**/*']
@@ -25,7 +25,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'actionpack'
   s.add_development_dependency 'activesupport'
   s.add_development_dependency 'railties'
-  s.add_development_dependency 'erubis'
+  s.add_dependency 'erubis'
+
+  s.required_ruby_version = '>= 1.9.3'
 
   s.post_install_message = <<-POST_INSTALL_MESSAGE
   #{"*" * 100}

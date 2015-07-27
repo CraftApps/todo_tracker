@@ -2,13 +2,12 @@ require 'fileutils'
 module TodoTracker
 
   class Search
-    #put initializer-> file types + folders to cover + folders to escape
 
     def self.find_all_todos
       todo_list = []
 
-      #Iterate through all the folders
-      TodoTracker.search_path.each do |file|
+      #Iterate through all files recursively
+      Dir["*/**/*.*"].each do |file|
 
         if File.file?(file) && file != __FILE__
           open(file) do |f|
