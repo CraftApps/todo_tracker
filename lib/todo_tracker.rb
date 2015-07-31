@@ -22,9 +22,8 @@ module TodoTracker
     @output_type ||= 'html'
   end
 
-	def self.configure(&block)
-    puts "i m in"
-    yield self
+  def self.configure(&block)
+    yield 
   end
 end
 
