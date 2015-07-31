@@ -1,3 +1,3 @@
 class InvokeHack
-	extend TodoTracker
+  extend TodoTracker
 end
