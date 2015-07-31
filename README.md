@@ -21,6 +21,11 @@ Or install it yourself as:
 
 ## Usage
 
+How to write todo while developing
+```ruby
+TODO I have to refractor this logic later
+```
+
 To generate text report
 ```ruby
 todo_tracker --html
@@ -29,6 +34,17 @@ todo_tracker --html
 To generate html report
 ```ruby
 todo_tracker --text
+```
+## Report
+
+```ruby
+Pending TODO's:
+
+Todo (1): I have to refractor this logic later #=> Actual todo/task to be done
+ Line: 6 #=> line number
+ Filename: app/controllers/application_controller.rb #=> file name with relative path
+ 
+Generated on: 22-Jul-2015-01:57 PM UTC #=> Report generation timestamp (In UTC time)
 ```
 
 ## Contributing
