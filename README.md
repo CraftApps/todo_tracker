@@ -21,9 +21,16 @@ Or install it yourself as:
 
 ## Usage
 
-How to write todo while developing
+How to create a todo in any ruby file:
 ```ruby
-TODO I have to refractor this logic later
+.
+.
+<%= some code %>
+.
+.
+#TODO I have to refractor this logic later
+.
+.
 ```
 
 To generate text report
